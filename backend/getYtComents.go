@@ -9,9 +9,9 @@ import (
 	"google.golang.org/api/youtube/v3"
 )
 
-func main() {
+func getYtComents() []string {
 	apiKey := "AIzaSyAl_OcorffLEvm6Itoz8kvBmjjd4qQhISY"
-	videoID := "0CW6cxApOBg"
+	videoID := "DmEx49-Pc0Y"
 
 	client := &http.Client{
 		Transport: &transport.APIKey{Key: apiKey},
@@ -23,15 +23,19 @@ func main() {
 
 	call := youtubeService.CommentThreads.List([]string{"snippet"}).
 		VideoId(videoID).
-		MaxResults(100)
+		MaxResults(35)
 
 	comments, err := call.Do()
 	if err != nil {
 		log.Fatalf("Error fetching comments: %v", err)
 	}
 
+	commentsFormatted := make([]string, 0)
+
 	for i, comment := range comments.Items {
-		fmt.Printf("Comment %d: %s\n", i+1, comment.Snippet.TopLevelComment.Snippet.TextOriginal)
+		commentFormatted := fmt.Sprintf("Comment %d: %s", i+1, comment.Snippet.TopLevelComment.Snippet.TextOriginal)
+		commentsFormatted = append(commentsFormatted, commentFormatted)
 	}
 
+	return commentsFormatted
 }
