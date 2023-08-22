@@ -25,7 +25,7 @@ type ResponseData struct {
 
 type commentsFormatted []string
 
-func getGptOpinion(commentsFormatted commentsFormatted) {
+func getGptOpinion(commentsFormatted commentsFormatted) (string, error) {
 	apiKey := "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"
 	client := resty.New()
 
@@ -34,7 +34,7 @@ func getGptOpinion(commentsFormatted commentsFormatted) {
 	requestBody := map[string]interface{}{
 		"model":      "gpt-3.5-turbo",
 		"messages":   []interface{}{map[string]interface{}{"role": "system", "content": content}},
-		"max_tokens": 50,
+		"max_tokens": 100,
 	}
 
 	response, err := client.R().
@@ -54,4 +54,5 @@ func getGptOpinion(commentsFormatted commentsFormatted) {
 	}
 
 	fmt.Println("Assistant's response:", responseData.Choices[0].Message.Content)
+	return responseData.Choices[0].Message.Content, nil
 }

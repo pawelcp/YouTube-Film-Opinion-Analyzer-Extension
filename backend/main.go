@@ -1,16 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	link := "https://www.youtube.com/watch?v=EmZtTd1YRmA&ab_channel=FORMULA1"
-	videoID, err := extractVideoIDFromLink(link)
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
+	r := gin.Default()
 
-	fmt.Println("YouTube Video ID:", videoID)
-	commentsFormatted := getYtComents(videoID)
-	getGptOpinion(commentsFormatted)
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"http://127.0.0.1:5500"}
+	r.Use(cors.New(config))
+
+	r.GET("/get_opinion", GetOpinionHandler)
+
+	r.Run()
 }
