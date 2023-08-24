@@ -9,7 +9,7 @@ func main() {
 	r := gin.Default()
 
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://127.0.0.1:5500"}
+	config.AllowOrigins = []string{"*"}
 	r.Use(cors.New(config))
 
 	r.GET("/get_opinion", GetOpinionHandler)
