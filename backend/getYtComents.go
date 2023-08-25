@@ -23,7 +23,7 @@ func getYtComents(videoID string) []string {
 
 	call := youtubeService.CommentThreads.List([]string{"snippet"}).
 		VideoId(videoID).
-		MaxResults(35)
+		MaxResults(50)
 
 	comments, err := call.Do()
 	if err != nil {

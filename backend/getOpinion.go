@@ -29,12 +29,12 @@ func getGptOpinion(commentsFormatted commentsFormatted) (string, error) {
 	apiKey := "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"
 	client := resty.New()
 
-	content := fmt.Sprintf("tell me how more or less people have received the movie '%s' based on these comments", commentsFormatted)
+	content := fmt.Sprintf("tell me how more or less people have received the movie '%s' based on these comments, and If there are any negative comments, describe them", commentsFormatted)
 
 	requestBody := map[string]interface{}{
 		"model":      "gpt-3.5-turbo",
 		"messages":   []interface{}{map[string]interface{}{"role": "system", "content": content}},
-		"max_tokens": 100,
+		"max_tokens": 150,
 	}
 
 	response, err := client.R().
