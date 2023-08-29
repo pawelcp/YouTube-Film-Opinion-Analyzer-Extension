@@ -16,11 +16,12 @@ body {
     color: #FFFFFF;
     border: none;
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 12px;
     cursor: pointer;
 }
 
 #opinionResult {
     margin-top: 10px; 
-    font-size: 20px;
+    font-size: 16px;
+    padding: 10 0;
 }

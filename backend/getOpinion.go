@@ -29,7 +29,7 @@ func getGptOpinion(commentsFormatted commentsFormatted) (string, error) {
 	apiKey := "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"
 	client := resty.New()
 
-	content := fmt.Sprintf("tell me how more or less people have received the movie '%s' based on these comments, and If there are any negative comments, describe them", commentsFormatted)
+	content := fmt.Sprintf("Based on the provided YouTube video comments, analyze the video's content utility and viewer reception. Rate its likely content quality on a scale of 1-10 and explain your reasoning. Write it in 70 words. '%s", commentsFormatted)
 
 	requestBody := map[string]interface{}{
 		"model":      "gpt-3.5-turbo",
