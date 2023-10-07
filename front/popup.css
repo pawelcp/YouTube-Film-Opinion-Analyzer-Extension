@@ -1,27 +1,89 @@
 body {
     font-family: Arial, sans-serif;
-    width: 200px;
+    width: 300px;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: start;
+    height: 800px;
+    background-color: #222222;
+}
+
+#header {
+    display: flex;
     justify-content: center;
-    height: 100vh;
-    background-color: #F0F0F0;
+    align-items: center;
+    font-family: "Roboto";
+    width: 100vw;
+    height: 25px;
+    background: #000000;
+    color: aliceblue;
+font-weight: bold;
 }
 
 #getOpinionButton {
-    background-color: #4285F4; 
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding: 22px 15px;
     color: #FFFFFF;
     border: none;
-    padding: 10px 20px;
     font-size: 12px;
     cursor: pointer;
+    transition: transform 0.2s linear;
+}
+
+#getOpinionButton:active {
+    transform: scale(.96);
+    transform-origin: top left;
 }
 
 #opinionResult {
-    margin-top: 10px; 
+    margin: 20px 5px;
     font-size: 16px;
-    padding: 10 0;
+    padding: 0px 20px;
+    color: aliceblue;
+}
+
+.fancy-border-radius {
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 100%;
+
+    /* These are ADDITIONAL styles - add them if you want an object exactly like in the demo above */
+    width: 35vw;
+    height: 15vh;
+    background: #ad5389;
+    background: -webkit-linear-gradient(to right,
+    #3c1053,
+    #ad5389);
+    background: linear-gradient(to right,
+    #3c1053,
+    #ad5389);
+}
+
+.typewriter h1 {
+    overflow: hidden; /* Hide overflowing text */
+    border-right: 2px solid #333; /* Cursor effect */
+    white-space: nowrap; /* Prevent text from wrapping */
+    margin: 0;
+    letter-spacing: 4px; /* Adjust the spacing between characters */
+    animation: typing 2s steps(40) infinite, blink-caret 1s infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #333;
+    }
 }
