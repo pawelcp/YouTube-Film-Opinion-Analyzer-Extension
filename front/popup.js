@@ -21,7 +21,7 @@ document.getElementById('getOpinionButton').addEventListener('click', async () =
 
     try {
         const response = await fetch(apiUrl, {
-            mode: 'cors' // Use 'cors' mode
+            mode: 'cors'
         });
 
 

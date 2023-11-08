@@ -49,7 +49,7 @@ font-weight: bold;
 .fancy-border-radius {
     border-radius: 100% 0% 100% 0% / 0% 0% 100% 100%;
 
-    /* These are ADDITIONAL styles - add them if you want an object exactly like in the demo above */
+
     width: 35vw;
     height: 15vh;
     background: #ad5389;
@@ -62,11 +62,11 @@ font-weight: bold;
 }
 
 .typewriter h1 {
-    overflow: hidden; /* Hide overflowing text */
-    border-right: 2px solid #333; /* Cursor effect */
-    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; 
+    border-right: 2px solid #333; 
+    white-space: nowrap; 
     margin: 0;
-    letter-spacing: 4px; /* Adjust the spacing between characters */
+    letter-spacing: 4px; 
     animation: typing 2s steps(40) infinite, blink-caret 1s infinite;
 }
 

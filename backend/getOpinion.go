@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 
+	"os"
+
 	"github.com/go-resty/resty/v2"
 )
 
@@ -26,7 +28,9 @@ type ResponseData struct {
 type commentsFormatted []string
 
 func getGptOpinion(commentsFormatted commentsFormatted) (string, error) {
-	apiKey := "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"
+	loadEnv()
+
+	apiKey := os.Getenv("OPENAI_API_KEY")
 	client := resty.New()
 
 	content := fmt.Sprintf("Based on the provided YouTube video comments, analyze the video's content utility and viewer reception. Rate its likely content quality on a scale of 1-10 and explain your reasoning. Write it in 70 words. '%s", commentsFormatted)

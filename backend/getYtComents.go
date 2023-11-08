@@ -6,12 +6,24 @@ import (
 	"net/http"
 	"regexp"
 
+	"os"
+
+	"github.com/joho/godotenv"
 	"google.golang.org/api/googleapi/transport"
 	"google.golang.org/api/youtube/v3"
 )
 
+func loadEnv() {
+	if err := godotenv.Load(); err != nil {
+		log.Fatalf("Error loading .env file: %v", err)
+	}
+}
+
 func getYtComents(videoID string) []string {
-	apiKey := "AIzaSyAl_OcorffLEvm6Itoz8kvBmjjd4qQhISY"
+
+	loadEnv()
+
+	apiKey := os.Getenv("YOUTUBE_API_KEY")
 
 	client := &http.Client{
 		Transport: &transport.APIKey{Key: apiKey},
