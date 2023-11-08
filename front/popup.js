@@ -16,7 +16,7 @@ document.getElementById('getOpinionButton').addEventListener('click', async () =
       } else {
         clearInterval(typingInterval);
       }
-    }, speed);
+    }, speed)
   }
 
     try {
